@@ -1,7 +1,6 @@
 package queue
 
 import (
-  "math/rand"
   "sync"
 )
 
@@ -23,21 +22,16 @@ func (q *Queue) Enqueue(x int) {
   }
 }
 
-func getLock() int {
-  return rand.Intn(10000000)
-}
-
-
-func (q *Queue) Dequeue() int {
+func (q *Queue) Dequeue() *int {
   for {
     if (len(q.Values) > 0) {
       q.lock.Lock()
       x := q.Values[0]
       q.Values = q.Values[1:]
       q.lock.Unlock()
-      return x
+      return &x
     }
-    return 0
+    return nil
   }
-  return 0
+  return nil
 }

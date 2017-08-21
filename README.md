@@ -6,6 +6,12 @@ I'm working mostly with NodeJS in backend. It's single threaded, so that I don't
 ### How it works
 I implement a struct with a slice for queueing and a lock to make sure the same thread cannot input data at the same time
 
+### Install
+```
+go install
+```
+
+
 ### Run example
 
 ```
